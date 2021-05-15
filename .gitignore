@@ -1,11 +1,14 @@
 venv/
 .idea/
 migrations/
+__pycache__/
+instance/
 event.pick
 *.log
 *.csv
 *.xls
 *.xlsx
+*.pyc
 celerybeat-schedule
 celerybeat.pid
 *.pem
