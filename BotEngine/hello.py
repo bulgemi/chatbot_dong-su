@@ -19,6 +19,7 @@ async def bot_engine(request):
         o = {
             "output": [{
                 "type": "option",
+                "delayMs": 1000,
                 "options": [
                     {
                         "label": "버튼1",
@@ -39,26 +40,58 @@ async def bot_engine(request):
         o = {
             "output": [{
                 "type": "image",
-                "value": "https://miro.medium.com/max/1488/1*9iLNtPqNl9oDCnQimDxYBQ.png"
+                "value": "https://miro.medium.com/max/1488/1*9iLNtPqNl9oDCnQimDxYBQ.png",
+                "delayMs": 1000
             }]
         }
     elif msg == '동영상':
         o = {
             "output": [{
                 "type": "youtube",
-                "value": "IhzxnY7FIvg"
-            }]
+                "value": "IhzxnY7FIvg",
+                "delayMs": 1000
+        }]
         }
     elif msg == '링크':
         o = {
             "output": [{
                 "type": "html",
                 "value": "<a href=\"https://github.com/SEOTAEEYOUL/A-TCL-ChatOps\" target=\"_blank\" >테스트 링크</a> 입니다.",
-                "delayMs": 500
+                "delayMs": 1000
             }]
         }
+    elif msg == '사진버튼':
+        o = {
+            "output": [
+                {
+                    "type": "image",
+                    "delayMs": 1000,
+                    "value": "https://miro.medium.com/max/1488/1*9iLNtPqNl9oDCnQimDxYBQ.png"
+                },
+                {
+                    "type": "option",
+                    "options": [
+                        {
+                            "label": "버튼1",
+                            "value": "value1"
+                        },
+                        {
+                            "label": "버튼2",
+                            "value": "value2"
+                        },
+                        {
+                            "label": "버튼3",
+                            "value": "value3"
+                        }
+                    ]
+                }
+            ]
+        }
     else:
-        o = {"output": [{"type": "text", "value": f"'{msg}'라고 말했어요."}]}
+        o = {"output": [{
+            "type": "text",
+            "delayMs": 1000,
+            "value": f"'{msg}'라고 말했어요."}]}
     res = f"{callback}({str(o)})"
     print(res)
     return text(res)
