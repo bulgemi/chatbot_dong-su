@@ -31,5 +31,6 @@ def create_app(test_config=None):
 
     from .bp import add_bp
     add_bp(app)
+    print("---->%r" % app.url_map)
 
     return app
