@@ -5,3 +5,4 @@
 ## 관련 연구
 
 * [챗봇 디자인](./doc/chatbot_design.md)
+* [페르소나](./doc/chatbot_persona.md)
