@@ -6,9 +6,18 @@
 
 ## 운영체제  
 
+* Ubuntu 20.04.3 LTS
+
 ## 개발언어 
 
+* Python 3.8.10
+
+## Database
+
+
 ## S/W Stack
+
+* sanic 21.3.4
 
 ## Source Directory
 
