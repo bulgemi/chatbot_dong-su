@@ -1,4 +1,4 @@
-# chatbot_dong-su
+# 챗봇 동수(for ChatOps)
 
 > 인프라 엔지니어을 위한 자연어 처리 챗봇
 
