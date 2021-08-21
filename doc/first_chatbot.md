@@ -181,7 +181,10 @@
 ### 인공 신경망(Artificial Neural Network)
 
 > 두뇌의 신경세포인 뉴런을 수학적으로 모방한 모델 
-> $$y = (w_0x_0 + w_1x_1 + w_2x_2) + b$$
+
+```math_def
+\newcommand{\foo}{Foo}
+```
   * 실제 뉴런은 입력된 신호가 특
 
 ### 문장 분류를 위한 CNN 모델
