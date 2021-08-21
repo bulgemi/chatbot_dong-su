@@ -188,7 +188,7 @@
     * 활성화 함수: 가중치 계산 결과값 y가 최종적으로 어떤 형태의 출력값으로 보낼지 결정 
   * 활성화 함수 종류
     * 스텝 함수(step function)
-      * <img src="https://render.githubusercontent.com/render/math?math=H[n]=\begin{cases} 0, & n < 0, \\ 1, & n \ge 0, \end{cases}">
+      * <img src="https://render.githubusercontent.com/render/math?math=h(x)=\Bigg{">
     * 시그모이드 함수(sigmoid function)
     * ReLU(Rectified Linear Unit)
 
