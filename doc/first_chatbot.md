@@ -183,7 +183,7 @@
 > 두뇌의 신경세포인 뉴런을 수학적으로 모방한 모델 
 
 ![formula](https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1)
-
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
 * 실제 뉴런은 입력된 신호가 특
 
 ### 문장 분류를 위한 CNN 모델
