@@ -182,7 +182,7 @@
 
 > 두뇌의 신경세포인 뉴런을 수학적으로 모방한 모델 
 
-```math_def
+```math
 \newcommand{\foo}{Foo}
 P(E)   = {n \choose k} p^k (1-p)^{ n-k}
 ```
