@@ -184,7 +184,13 @@
 
 * <img src="https://render.githubusercontent.com/render/math?math=y = (w_0x_0 %2B w_1x_1 %2B w_2x_2) %2B b">
 
-  * 실제 뉴런은 입력된 신호가 특
+  * 실제 뉴런은 입력된 신호가 특정 강도 이상일 때만 다음 뉴런으로 신호를 전달, 인공 신경망에서는 활성화 함수가 동일한 역할 수행 
+    * 활성화 함수: 가중치 계산 결과값 y가 최종적으로 어떤 형태의 출력값으로 보낼지 결정 
+  * 활성화 함수 종류
+    * 스텝 함수(step function)
+      * <img src="https://render.githubusercontent.com/render/math?math=H[n]=\begin{cases} 0, & n < 0, \\ 1, & n \ge 0, \end{cases}">
+    * 시그모이드 함수(sigmoid function)
+    * ReLU(Rectified Linear Unit)
 
 ### 문장 분류를 위한 CNN 모델
 
