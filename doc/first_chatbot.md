@@ -184,6 +184,7 @@
 
 ```math_def
 \newcommand{\foo}{Foo}
+P(E)   = {n \choose k} p^k (1-p)^{ n-k}
 ```
   * 실제 뉴런은 입력된 신호가 특
 
