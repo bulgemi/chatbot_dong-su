@@ -14,12 +14,33 @@
 
 ## Database
 
+* MariaDB 10.4.21
 
 ## S/W Stack
 
 * sanic 21.3.4
 
 ## Source Directory
+
+* chatbot
+  * BotEngine
+    * config
+    * tests
+    * app
+  * WebChatbotAdapter 
+    * app
+      * adapter
+      * static
+      * templates
+    * tests
+  * MlPipeLine
+    * train_tools
+    * models
+      * intent
+      * ner
+    * utils
+    * config
+    * tests
 
 # 구현 및 적용
 
