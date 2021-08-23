@@ -22,7 +22,7 @@
 
 ## Source Directory
 
-* chatbot
+* CHATBOT_HOME
   * BotEngine
     * config
     * tests
