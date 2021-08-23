@@ -41,6 +41,10 @@
     * utils
     * config
     * tests
+  * WordCollector
+    * config
+    * tests
+    * app
 
 # 구현 및 적용
 
