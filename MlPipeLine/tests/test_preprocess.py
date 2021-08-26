@@ -9,7 +9,7 @@ from MlPipeLine.utils.Preprocess import Preprocess
 
 @pytest.fixture
 def create_object():
-    return Preprocess(userdic='../utils/user_dic.tsv')
+    return Preprocess(userdic='../train_tools/dict/user_dic.tsv')
 
 
 def test_pos_false(create_object):
