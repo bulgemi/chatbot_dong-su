@@ -6,7 +6,7 @@ from sanic.log import logger
 from contextvars import ContextVar
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker
-sys.path.append('/home/donghun/PycharmProjects/chatbot_dong-su')
+sys.path.append(os.getenv('CHATBOT_HOME'))
 from BotEngine.bot_engine import bp
 from BotEngine.error_handling import err_bp
 from MlPipeLine.utils.Preprocess import Preprocess
