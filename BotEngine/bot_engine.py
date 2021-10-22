@@ -1,21 +1,23 @@
 # _*_ coding: utf-8 _*_
-from sanic import Sanic
+__author__ = 'kim dong-hun'
 from sanic.response import text, json
+from sanic import Blueprint
+from sanic.log import logger
+from sqlalchemy import select
+from sqlalchemy import or_
+from .models import ChatbotTrainData
+from .find_answer import FindAnswer
+
+bp = Blueprint('bot_engine')
 
 
-app = Sanic("My hello, world app")
-
-
-@app.get("/")
-async def hello_world(request):
-    return text("Hello, world!")
-
-
+@bp.route("/engine")
 async def bot_engine(request):
+    session = request.ctx.session
     callback = request.args.get('callback')
     msg = request.args.get('text')
-    print("---------->%r" % callback)
-    print("---------->%r" % msg)
+    logger.debug("---------->%r" % callback)
+    logger.debug("---------->%r" % msg)
     if msg == '버튼':
         o = {
             "output": [
@@ -119,17 +121,47 @@ async def bot_engine(request):
             }
         ]}
     else:
+        predict = request.ctx.intent.predict_class(msg)
+        intent_name = request.ctx.intent.labels[predict]
+        predicts = request.ctx.ner.predict(msg)
+        ner_tags = request.ctx.ner.predict_tags(msg)
+        logger.debug("의도 파악: %r" % intent_name)
+        logger.debug("개체명 인식: %r" % predicts)
+        logger.debug("답변 검색에 필요한 NER 태그: %r" % ner_tags)
+        try:
+            f = FindAnswer(session)
+            # answer_text, answer_image = f.search(intent_name, ner_tags)
+            row = None
+            async with session.begin():
+                stmt = select(ChatbotTrainData)
+                stmt = stmt.filter(ChatbotTrainData.intent == intent_name)
+                if ner_tags is not None:
+                    for ne in ner_tags:
+                        stmt = stmt.filter(or_(ChatbotTrainData.ner.like("%{}%".format(ne)),))
+                logger.debug(str(stmt))
+                results = await session.execute(stmt)
+                row = results.first()
+
+            if row is None:
+                async with session.begin():
+                    stmt = select(ChatbotTrainData)
+                    stmt = stmt.filter(ChatbotTrainData.intent == intent_name)
+                    results = await session.execute(stmt)
+                    row = results.first()
+            msg = f.tag_to_word(predicts, row['ChatbotTrainData'].answer)
+        except Exception as e:
+            logger.error("Error: %r" % e)
+            msg = "죄송해요, 무슨 말인지 모르겠어요."
+
         o = {"output": [
             {
                 "type": "text",
                 "delayMs": 1000,
-                "value": f"'{msg}'라고 말했어요."
+                "value": f"{msg}"
             }
         ]}
-
     res = f"{callback}({str(o)})"
-    print(res)
+    logger.debug(res)
 
     return text(res)
 
-app.add_route(bot_engine, "/engine")
