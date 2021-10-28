@@ -2,6 +2,7 @@
 __author__ = 'kim dong-hun'
 from sanic.response import text, json
 from sanic import Blueprint
+from sanic import Sanic
 from sanic.log import logger
 from sqlalchemy import select
 from sqlalchemy import or_
@@ -121,13 +122,17 @@ async def bot_engine(request):
             }
         ]}
     else:
-        predict = request.ctx.intent.predict_class(msg)
-        intent_name = request.ctx.intent.labels[predict]
-        predicts = request.ctx.ner.predict(msg)
-        ner_tags = request.ctx.ner.predict_tags(msg)
+        app = Sanic.get_app()
+
+        predict = app.ctx.intent.predict_class(msg)
+        intent_name = app.ctx.intent.labels[predict]
+        predicts = app.ctx.ner.predict(msg)
+        ner_tags = app.ctx.ner.predict_tags(msg)
+
         logger.debug("의도 파악: %r" % intent_name)
         logger.debug("개체명 인식: %r" % predicts)
         logger.debug("답변 검색에 필요한 NER 태그: %r" % ner_tags)
+
         try:
             f = FindAnswer(session)
             # answer_text, answer_image = f.search(intent_name, ner_tags)

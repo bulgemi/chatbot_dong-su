@@ -17,12 +17,12 @@ app = Sanic(__name__)
 app.blueprint(bp)
 app.blueprint(err_bp)
 bind = create_async_engine("mysql+aiomysql://chatbot_appl:chatbot_appl!@localhost/chatbot_db?charset=utf8mb4",
-                           echo=True)
+                           echo=True, pool_recycle=500)
 _base_model_session_ctx = ContextVar('session')
 
 
 @app.listener("before_server_start")
-async def setup_ml_pipeline(app, loop):
+async def setup_ml_db(app, loop):
     logger.debug("call listener")
     p = Preprocess(word2index_dic='../MlPipeLine/train_tools/dict/chatbot_dict.bin',
                    userdic='../MlPipeLine/train_tools/dict/user_dic.tsv')
@@ -30,18 +30,21 @@ async def setup_ml_pipeline(app, loop):
                                  preprocess=p)
     app.ctx.ner = NerModel(model_name='../MlPipeLine/models/ner/ner_model.h5',
                            preprocess=p)
+    # app.ctx.session = sessionmaker(bind, AsyncSession, expire_on_commit=False)()
+    # app.ctx.session_ctx_token = _base_model_session_ctx.set(app.ctx.session)
+
+
+# @app.listener("after_server_stop")
+# async def setup_ml_db(app, loop):
+#     if hasattr(app.ctx, "session_ctx_token"):
+#         _base_model_session_ctx.reset(app.ctx.session_ctx_token)
+#         await app.ctx.session.close()
 
 
 @app.middleware('request')
 async def inject_session(request):
     request.ctx.session = sessionmaker(bind, AsyncSession, expire_on_commit=False)()
     request.ctx.session_ctx_token = _base_model_session_ctx.set(request.ctx.session)
-    p = Preprocess(word2index_dic='../MlPipeLine/train_tools/dict/chatbot_dict.bin',
-                   userdic='../MlPipeLine/train_tools/dict/user_dic.tsv')
-    request.ctx.intent = IntentModel(model_name='../MlPipeLine/models/intent/intent_model.h5',
-                                     preprocess=p)
-    request.ctx.ner = NerModel(model_name='../MlPipeLine/models/ner/ner_model.h5',
-                               preprocess=p)
 
 
 @app.middleware('response')
