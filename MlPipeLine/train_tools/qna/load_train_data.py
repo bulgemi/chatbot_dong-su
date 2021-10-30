@@ -39,6 +39,8 @@ def insert_data(session, xls_row):
     query = str(xls_row['질문(Query)']) if str(xls_row['질문(Query)']) != 'nan' else ''
     answer = str(xls_row['답변(Answer)']) if str(xls_row['답변(Answer)']) != 'nan' else ''
     answer_image = str(xls_row['답변 이미지']) if str(xls_row['답변 이미지']) != 'nan' else ''
+    restful_url = str(xls_row['RESTFul_URL']) if str(xls_row['RESTFul_URL']) != 'nan' else ''
+    res_type = str(xls_row['RES_TYPE']) if str(xls_row['RES_TYPE']) != 'nan' else ''
 
     try:
         new_row = ChatbotTrainData(
@@ -46,7 +48,9 @@ def insert_data(session, xls_row):
             ner=ner,
             query=query,
             answer=answer,
-            answer_image=answer_image
+            answer_image=answer_image,
+            restful_url=restful_url,
+            res_type=res_type
         )
         session.add(new_row)
         session.commit()
