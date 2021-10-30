@@ -1,5 +1,6 @@
 # _*_ coding: utf-8 _*_
 __author__ = 'kim dong-hun'
+import requests
 from sanic.response import text, json
 from sanic import Blueprint
 from sanic import Sanic
@@ -121,6 +122,13 @@ async def bot_engine(request):
                 "value": f"'{m_map[msg]}'를 눌렀습니다."
             }
         ]}
+    elif msg.startswith('_btn_'):
+        o = {"output": [
+            {
+                "type": "text", "delayMs": 1000,
+                "value": f"'{msg[len('_btn_'):]}' 눌렀습니다."
+            }
+        ]}
     else:
         app = Sanic.get_app()
 
@@ -133,6 +141,9 @@ async def bot_engine(request):
         logger.debug("개체명 인식: %r" % predicts)
         logger.debug("답변 검색에 필요한 NER 태그: %r" % ner_tags)
 
+        res_type = ''
+        img = ''
+        restful_url = ''
         try:
             f = FindAnswer(session)
             # answer_text, answer_image = f.search(intent_name, ner_tags)
@@ -154,17 +165,55 @@ async def bot_engine(request):
                     results = await session.execute(stmt)
                     row = results.first()
             msg = f.tag_to_word(predicts, row['ChatbotTrainData'].answer)
+            img = row['ChatbotTrainData'].answer_image
+            restful_url = row['ChatbotTrainData'].restful_url
+            res_type = row['ChatbotTrainData'].res_type
         except Exception as e:
             logger.error("Error: %r" % e)
             msg = "죄송해요, 무슨 말인지 모르겠어요."
-
-        o = {"output": [
+        res_array = list()
+        if len(img) > 0:
+            res_array.append(
+                {
+                    "type": "image",
+                    "value": img
+                }
+            )
+        type_map = {
+            'T': 'text',
+            'B': 'option'
+        }
+        logger.debug("res_type: %r" % res_type)
+        if res_type.strip() in type_map:
+            t = type_map[res_type.strip()]
+        else:
+            t = 'text'
+        res_array.append(
             {
-                "type": "text",
+                "type": 'text',
                 "delayMs": 1000,
                 "value": f"{msg}"
             }
-        ]}
+        )
+        if len(restful_url) > 0 and res_type == 'B':
+            res = requests.post(restful_url)
+            logger.debug("res=%r" % res.json())
+            r = res.json()
+            options = list()
+            if res_type == 'B':
+                for ns in r['data']:
+                    options.append({
+                        "label": ns,
+                        "value": "_btn_{}".format(ns)
+                    })
+            res_array.append(
+                {
+                    "type": t,
+                    "options": options
+                }
+            )
+
+        o = {"output": res_array}
     res = f"{callback}({str(o)})"
     logger.debug(res)
 
