@@ -1,7 +1,7 @@
 # _*_ coding: utf-8 _*_
 __author__ = 'kim dong-hun'
 import requests
-from sanic.response import text, json
+from sanic.response import text
 from sanic import Blueprint
 from sanic import Sanic
 from sanic.log import logger
