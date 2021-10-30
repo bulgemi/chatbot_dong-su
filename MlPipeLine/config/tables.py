@@ -17,6 +17,8 @@ class ChatbotTrainData(Base):
     query = Column(Text)
     answer = Column(Text)
     answer_image = Column(String(2048))
+    restful_url = Column(String(1024))
+    res_type = Column(String(1))
 
     def __repr__(self):
         return "<ChatbotTrainData(id='%s', intent='%s', ner='%s')>" % (self.id, self.intent, self.ner)
