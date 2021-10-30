@@ -27,7 +27,8 @@ class IntentModel(object):
             1: '욕설',
             2: '주문',
             3: '예약',
-            4: '기타'
+            4: '기타',
+            5: '모니터링'
         }
         self.model = load_model(model_name)
         self.p = preprocess
