@@ -18,8 +18,8 @@ async def bot_engine(request):
     session = request.ctx.session
     callback = request.args.get('callback')
     msg = request.args.get('text')
-    logger.debug("---------->%r" % callback)
-    logger.debug("---------->%r" % msg)
+    logger.debug("callback: %r" % callback)
+    logger.debug("input message: %r" % msg)
     if msg == '버튼':
         o = {
             "output": [
@@ -118,14 +118,14 @@ async def bot_engine(request):
                  '_btn3_': '수박'}
         o = {"output": [
             {
-                "type": "text", "delayMs": 1000,
+                "type": "text", "delayMs": 100,
                 "value": f"'{m_map[msg]}'를 눌렀습니다."
             }
         ]}
     elif msg.startswith('_btn_'):
         o = {"output": [
             {
-                "type": "text", "delayMs": 1000,
+                "type": "text", "delayMs": 100,
                 "value": f"'{msg[len('_btn_'):]}' 눌렀습니다."
             }
         ]}
@@ -191,7 +191,7 @@ async def bot_engine(request):
         res_array.append(
             {
                 "type": 'text',
-                "delayMs": 1000,
+                "delayMs": 100,
                 "value": f"{msg}"
             }
         )
