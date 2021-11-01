@@ -22,6 +22,7 @@ class NerModel(object):
         :param preprocess:
         """
         self.index_to_ner = {
+            0: 'PAD',
             1: 'O',
             2: 'B_DT',
             3: 'B_FOOD',
@@ -31,7 +32,6 @@ class NerModel(object):
             7: 'B_LC',
             8: 'NNP',
             9: 'B_TI',
-            0: 'PAD',
             10: 'B_NAMESPACE',
             11: 'I_NAMESPACE',
         }
