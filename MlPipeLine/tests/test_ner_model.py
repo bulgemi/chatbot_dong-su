@@ -11,6 +11,14 @@ def test_ner_model():
     p = Preprocess(word2index_dic='../train_tools/dict/chatbot_dict.bin',
                    userdic='../train_tools/dict/user_dic.tsv')
     ner = NerModel(model_name='../models/ner/ner_model.h5', preprocess=p)
-    query = '오늘 오후 1시 2분에 탕수육 주문하고 싶어요'
-    predicts = ner.predict(query)
-    print(predicts)
+    querys = [
+        '네임스페이스 목록 보여줘',
+        '네임스페이스 목록 알려줘',
+        'namespace 목록 보여줘',
+        'namespace 목록 알려줘',
+        'namespace 리스트 보여줘',
+        'namespace 리스트 알려줘',
+    ]
+    for query in querys:
+        predicts = ner.predict(query)
+        print(predicts)
