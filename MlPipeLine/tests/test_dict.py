@@ -14,9 +14,9 @@ def test_dict():
     f.close()
 
     sent = ["네임스페이스 목록 보여줘",
-            "namespace 목록 보여줘",
+            "내임스페이스 목록 알려줘",
             "namespace 리스트 알려줘",
-            "Namespace 목록 보여줘"]
+            "namespace 목록 보여줘"]
 
     # 전처리 객체 생성
     p = Preprocess(userdic='../train_tools/dict/user_dic.tsv')
