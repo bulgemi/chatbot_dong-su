@@ -18,7 +18,23 @@
 
 ## S/W Stack
 
+> 상세 내용은 requirements.txt 참조
+
+* aiomysql 0.0.21
+* alembic 1.6.5
+* gunicorn 20.1.0
+* gensim 4.0.1
+* Flask 2.0.0
+* keras 2.6.0
+* konlpy 0.5.2
+* openpyxl 3.0.7
+* pandas 1.3.2
+* PyMySQL 0.9.3
+* pytest 6.2.4
 * sanic 21.3.4
+* scikit-learn 0.24.2
+* SQLAlchemy 1.4.23
+* tensorflow 2.6.0
 
 ## Source Directory
 
