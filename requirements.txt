@@ -1,13 +1,17 @@
 absl-py==0.13.0
 aiofiles==0.6.0
+aiohttp==3.8.0
 aiomysql==0.0.21
+aiosignal==1.2.0
 alembic==1.6.5
 astunparse==1.6.3
+async-timeout==4.0.0
 attrs==21.2.0
 beautifulsoup4==4.6.0
 cachetools==4.2.2
 certifi==2020.12.5
 chardet==4.0.0
+charset-normalizer==2.0.7
 clang==5.0
 click==7.1.2
 colorama==0.4.4
@@ -16,6 +20,7 @@ et-xmlfile==1.1.0
 falcon==3.0.1
 Flask==2.0.0
 flatbuffers==1.12
+frozenlist==1.2.0
 gast==0.4.0
 gensim==4.0.1
 google-auth==1.35.0
@@ -93,3 +98,4 @@ websockets==8.1
 Werkzeug==2.0.0
 wrapt==1.12.1
 xlrd==2.0.1
+yarl==1.7.2
