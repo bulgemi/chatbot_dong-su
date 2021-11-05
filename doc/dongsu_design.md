@@ -86,12 +86,13 @@
 ### 의도 분석
 
 * CNN(Convolutional Neural Network) 모델 사용
-  * ![의도 분석 코드](./img/의도_분석_코드.png)
-  * ![챗봇 학습데이터](./img/챗봇_학습데이터.png)
 * Keras에서 제공하는 TensorFlow 사용
 * 학습 모델 'intent_model.h5' 저장
 * 정확도: 99.5%, 손실: 0.004%
-  * ![의도 학습](./img/chatbot_intent_학습.png)
+
+![의도 분석 코드](./img/의도_분석_코드.png)
+![챗봇 학습데이터](./img/챗봇_학습데이터.png)
+![의도 학습](./img/chatbot_intent_학습.png)
 
 ### 개체명 인식
 
