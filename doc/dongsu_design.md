@@ -70,6 +70,10 @@
 
 ![DB 테이블](./img/chatbot_train_data_table.png)
 
+## 자연어 처리 과정
+
+![자연어 처리 과정](./img/자연어_처리_과정.png)
+
 ## ChatApp
 
 ## ChatAdapter
