@@ -131,6 +131,10 @@
 
 ### Caller
 
+* RESTFul API 호출
+
+![RESTFul API](./img/restful_url.png)
+
 # 시험 및 평가
 
 ## ML Pipeline
