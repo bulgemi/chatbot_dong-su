@@ -124,6 +124,11 @@
 
 ### BotEngine
 
+* 분석된 의도와 개체명에 해당하는 답변을 DB에서 검색
+  * 테이블명: chatbot_trian_data
+
+![DB 데이터](./img/chatbot_train_data.png)
+
 ### Caller
 
 # 시험 및 평가
