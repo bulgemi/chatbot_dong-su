@@ -156,6 +156,11 @@ python aiohttp_test_server.py
 ![의도분석_테스트](./img/의도분석_테스트.png)
 ![의도분석_테스트_로그](./img/의도분석_테스트_로그.png)
 
+### 개체명 인식
+
+![개체명_인식_테스트](./img/개체명_인식_테스트.png)
+![개체명_인식_테스트_로그](./img/개체명_인식_테스트_로그.png)
+
 ## ChatBot
 
 ### Test RESTFul Server
