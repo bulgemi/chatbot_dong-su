@@ -85,6 +85,7 @@
 
 ### 의도 분석
 
+* 의도 종류: 인사, 욕설, 네임스페이스 목록 요청
 * CNN(Convolutional Neural Network) 모델 사용
 * Keras에서 제공하는 TensorFlow 사용
 * 학습 모델 'intent_model.h5' 저장
@@ -178,7 +179,7 @@ python aiohttp_test_server.py
 ![욕](./img/챗봇_욕.png)
 ![욕_로그](./img/챗봇_나쁜놈아_로그.png)
 
-### 네임스페이스
+### 네임스페이스 목록
 
 ![네임스페이스_목록_보여줘](./img/네임스페이스_목록_보여줘.png)
 ![네임스페이스_목록_보여줘_로그](./img/네임스페이스_목록_보여줘_로그.png)
