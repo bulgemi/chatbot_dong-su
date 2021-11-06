@@ -168,6 +168,14 @@ python aiohttp_test_server.py
 
 ![aiohttp_test_server](./img/aiohttp_test_server.png)
 
+### ChatAdapter 기동
+
+![adapter_boot](./img/adapter_boot.png)
+
+### BotEngine
+
+![botengine_boot](./img/botengine_boot.png)
+
 ### 인사
 
 ![인사](./img/챗봇_인사.png)
