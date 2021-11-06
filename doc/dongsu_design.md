@@ -151,6 +151,11 @@ python aiohttp_test_server.py
 ![형태소분석 테스트](./img/형태소분석_테스트.png)
 ![형태소분석 테스트 로그](./img/형태소분석_테스트_로그.png)
 
+### 의도 분석
+
+![의도분석_테스트](./img/의도분석_테스트.png)
+![의도분석_테스트_로그](./img/의도분석_테스트_로그.png)
+
 ## ChatBot
 
 ### Test RESTFul Server
