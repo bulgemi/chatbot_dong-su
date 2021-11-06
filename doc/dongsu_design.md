@@ -110,7 +110,17 @@
 
 ### ChatApp
 
+* Web 기반 챗봇
+* Slack
+* Facebook
+* 카카오톡
+
 ### ChatAdapter
+
+* Web 기반 챗봇
+  * Flask
+
+![Web 기반 쳇봇](./img/챗봇_hi.png)
 
 ### BotEngine
 
