@@ -131,7 +131,13 @@
 
 ### Caller
 
-* RESTFul API 호출
+* 네임스페이스 목록 RESTFul API 호출
+* 테스트를 위해 동일한 응답을 주는 TestRESTFulServer 사용
+
+```shell
+cd TestRESTFulServer
+python aiohttp_test_server.py
+```
 
 ![RESTFul API](./img/restful_url.png)
 
