@@ -177,3 +177,13 @@ python aiohttp_test_server.py
 
 ![욕](./img/챗봇_욕.png)
 ![욕_로그](./img/챗봇_나쁜놈아_로그.png)
+
+### 네임스페이스
+
+![네임스페이스_목록_보여줘](./img/네임스페이스_목록_보여줘.png)
+![네임스페이스_목록_보여줘_로그](./img/네임스페이스_목록_보여줘_로그.png)
+![namespace_리스트_보여줘](./img/namespace_리스트_보여줘.png)
+![namespace_리스트_보여줘_로그](./img/namespace_리스트_보여줘_로그.png)
+![ns_목록은](./img/ns_목록은.png)
+![ns_목록은_로그](./img/ns_목록은_로그.png)
+
