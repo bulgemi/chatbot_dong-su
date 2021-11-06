@@ -14,7 +14,7 @@ def test_intent_model():
     intent = IntentModel(model_name='../models/intent/intent_model.h5',
                          preprocess=p)
 
-    query = '오늘 탕수육 주문 가능할까요?'
+    query = '네임스페이스 리스트 보여줘?'
     predict = intent.predict_class(query)
     predict_label = intent.labels[predict]
 
