@@ -13,14 +13,15 @@ def create_object():
 
 
 def test_pos_false(create_object):
-    sent = '내일 오전 10시에 탕수육 주문하고 싶어'
+    sent = '네임스페이스 목록 보여줘'
+    print(sent)
     pos = create_object.pos(sent)
     ret = create_object.get_keywords(pos, without_tag=False)
     print(ret)
 
 
 def test_pos_true(create_object):
-    sent = '내일 오전 10시에 탕수육 주문하고 싶어'
+    sent = '네임스페이스 목록 보여줘'
     pos = create_object.pos(sent)
     ret = create_object.get_keywords(pos, without_tag=True)
     print(ret)
