@@ -112,9 +112,9 @@
 ### ChatApp
 
 * Web 기반 챗봇
-* Slack
-* Facebook
-* 카카오톡
+* Slack(예정)
+* Facebook(예정)
+* 카카오톡(예정)
 
 ### ChatAdapter
 
