@@ -132,14 +132,15 @@
 ### Caller
 
 * 네임스페이스 목록 RESTFul API 호출
-* 테스트를 위해 동일한 응답을 주는 TestRESTFulServer 사용
+
+![RESTFul API](./img/restful_url.png)
+
+* 테스트를 위해 동일한 응답을 주는 Test RESTFul Server 사용
 
 ```shell
 cd TestRESTFulServer
 python aiohttp_test_server.py
 ```
-
-![RESTFul API](./img/restful_url.png)
 
 # 시험 및 평가
 
@@ -149,3 +150,9 @@ python aiohttp_test_server.py
 
 ![형태소분석 테스트](./img/형태소분석_테스트.png)
 ![형태소분석 테스트 로그](./img/형태소분석_테스트_로그.png)
+
+## ChatBot
+
+### Test RESTFul Server
+
+![aiohttp_test_server](./img/aiohttp_test_server.png)
