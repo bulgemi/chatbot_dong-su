@@ -163,6 +163,11 @@ python aiohttp_test_server.py
 
 ## ChatBot
 
-### Test RESTFul Server
+### Test RESTFul Server 기동
 
 ![aiohttp_test_server](./img/aiohttp_test_server.png)
+
+### 인사
+
+![인사](./img/챗봇_인사.png)
+![인사_로그](./img/챗봇_하이루_로그.png)
