@@ -82,6 +82,10 @@
 * Konlpy에서 제공하는 Komoran(Korea Morphological Analyzer) 분석기 사용
 * 사용자 사전 구축(tsv 포맷 사용, Tab으로 단어/품사 구분)
   * ![사용자 사전](./img/사용자정의용어_정의.png)
+* 말뭉치 파일 이용하여 사전 생성
+  * ![말뭉치](./img/말뭉치.png)
+* 사전 파일 'chatbot_dict.bin' 저장
+  * ![사전파일 저장](./img/형태소_분석.png)
 
 ### 의도 분석
 
